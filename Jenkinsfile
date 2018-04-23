@@ -8,7 +8,7 @@
 
 // The cookbook and current branch that is being built
 def branch = env.BRANCH_NAME
-def cookbook = 'pr-test'
+def cookbook = 'demo_cookbook'
 currentBuild.displayName = "#${BUILD_NUMBER}; Branch: ${branch}"
 
 // OTHER (Unchanged)
@@ -32,7 +32,7 @@ def notifyStash(cookbookDirectory){
 	def sha1 = get_sha1(cookbookDirectory)
   step([$class: 'StashNotifier', commitSha1: sha1, 
                                  considerUnstableAsSuccess: false,
-                                 credentialsId: 'change', // Credential in Jenkins corresponds to the talosci user (safe for source control)
+                                 credentialsId: 'change', // Credential in Jenkins corresponds to the ?? user (safe for source control)
                                  disableInprogressNotification: false,
                                  ignoreUnverifiedSSLPeer: true,
                                  includeBuildNumberInKey: false,
@@ -62,8 +62,8 @@ def fetch(scm, cookbookDirectory, branch){
 }
 
 // Cookbook build and returning results to BitBucket
-node('jenkins-minion-8') {
-  withCredentials([string(credentialsId: 'clientSecret', variable: 'EAT_Integration_Secret')]) {
+node('jenkins-node') {
+  withCredentials([string(credentialsId: 'clientSecret', variable: 'Integration_Secret')]) {
     stage('Validate Parameters') {
       echo "cookbook: ${cookbook}"
       echo "current branch: ${branch}"

@@ -1,3 +1,9 @@
+@Library('r1.pipelinetools@chefconf2018-global-library') _
+
+cookbookWorkflow { 
+	
+}
+
 #!/usr/bin/env groovy
 // COOKBOOK BUILD SETTINGS
 

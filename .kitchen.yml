@@ -30,4 +30,4 @@ suites:
     environments_path: test/environments
     verifier:
       inspec_tests:
-        - test/integration/default
+        - git: https://github.com/anniehedgpeth/demo_profile.git

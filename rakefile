@@ -41,8 +41,8 @@ namespace :style do
     desc 'Run foodcritic style checks'
     FoodCritic::Rake::LintTask.new(:foodcritic) do |task|
       task.options = {
-				fail_tags: ['any'],
-				tags: %w(~FC019 ~FC069 ~FC078),				
+        fail_tags: ['any'],
+        tags: %w(~FC019 ~FC069 ~FC078),
         progress: true,
       }
     end

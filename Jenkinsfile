@@ -4,7 +4,7 @@ cookbookWorkflow {
 	
 }
 
-#!/usr/bin/env groovy
+//#!/usr/bin/env groovy
 // COOKBOOK BUILD SETTINGS
 
 // Azure credentials

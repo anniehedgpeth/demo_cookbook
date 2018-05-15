@@ -2,7 +2,7 @@
 // @Library('global_library_demo@branch_name') _ // loads library at a specific branch
 // @Library('global_library_demo@v1.0') _ // loads library at a specific tag
 
-@Library('global_library_demo@version-1') _
+@Library('global_library_demo') _
 
 cookbookWorkflow {
 }

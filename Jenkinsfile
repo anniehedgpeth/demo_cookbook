@@ -41,18 +41,18 @@ node() {
       // subscriptionId
       branch
       scmProps = checkout scm
+      notifyStash(scmProps.GIT_COMMIT)
     } catch (MissingPropertyException mpe) {
       echo "Pipeline parameters have been updated, please re-build"
       throw mpe;
     }
   }
   stage('Lint') {
-    notifyStash(scmProps.GIT_COMMIT)
     try {
       rake('clean')
       rake('style')
+      currentBuild.result = 'SUCCESS'
     }
-    currentBuild.result = 'SUCCESS'
     catch(err){
       currentBuild.result = 'FAILED'
       notifyStash(scmProps.GIT_COMMIT)

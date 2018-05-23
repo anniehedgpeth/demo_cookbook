@@ -25,12 +25,6 @@ namespace :style do
     require 'cookstyle'
     require 'rubocop/rake_task'
     RuboCop::RakeTask.new(:cookstyle) do |task|
-      # If we are in CI mode then add formatter options
-      # task.options.concat %w(
-      #   --require rubocop/formatter/checkstyle_formatter
-      #   --format RuboCop::Formatter::CheckstyleFormatter
-      #   -o reports/xml/checkstyle-result.xml
-      # ) if ENV['CI']
     end
   rescue
     puts ">>> Gem load error: #{e}, omitting style:cookstyle" unless ENV['CI']
